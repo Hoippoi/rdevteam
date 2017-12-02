@@ -32,7 +32,6 @@ apple <- splitf(apple_1)
 apple
 
 
-
 naverRelation2 <- function(x){
   
   # Pre
