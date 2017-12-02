@@ -19,11 +19,11 @@ apple_1 %>% html_text()
 trim(apple_1 %>% html_text())
 
 # 글자를 분리
-str_split(trim(apple_1 %>% html_text()),'  ')
+str_split(trim(apple_1 %>% html_text()),'   ')
 
 # 글자 분리 함수 생성
 splitf <- function(x){
-  return(str_split(trim(x %>% html_text()),'  '))
+  return(str_split(trim(x %>% html_text()),'   '))
   }
 
 # 함수 작동 확인
@@ -45,7 +45,7 @@ naverRelation2 <- function(x){
     html_nodes(css='.lst_relate') 
   
   splitf <- function(y){
-    return(str_split(trim(y %>% html_text()),'  '))
+    return(str_split(trim(y %>% html_text()),'   '))
   }
   
   # Return
