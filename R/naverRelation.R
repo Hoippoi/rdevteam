@@ -23,3 +23,25 @@ naverRelation <- function(x){
   regmatches(html, regexpr(img_tag_pattern, html))
 
 }
+
+
+naverRelation2 <- function(x){
+  
+  # Pre
+  stopifnot(is.character(x))
+  stopifnot(require(rvest)); stopifnot(require(stringr))
+  
+  # Content
+  html <- paste0('https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=', x) %>%
+    read_html %>%
+    html_nodes(css='.lst_relate') 
+  
+  splitf <- function(y){
+    return(str_split(trim(y %>% html_text()),'  '))
+  }
+  
+  # Return
+  splitf(html)
+  
+}
+naverRelation2('사과')
